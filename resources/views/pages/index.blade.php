@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>@php
-        echo $title;
-    @endphp</h1>
-    <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, distinctio et neque optio, illum perferendis quae dicta magni esse at tenetur ipsum nam, commodi aliquid eum fugit facilis totam ab?</P>
+    <div class="jumbotron text-center">
+        <h1>Warehouse Environment Management!</h1>
+    @if (Auth::guest())    
+        <p>Take a minute to make your account if not yet registered</p> 
+        <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> <a class="btn btn-success btn-lg" href="/register" role="button">Register</a></p>
+    @else 
+        <p>Wellcome {{ Auth::user()->name }}</p>
+    @endif
+    </div>
+    <div id="fncbox"> hiii </div>
+    <div id="fncbox"> hiii </div>
 @endsection
-    
-
-

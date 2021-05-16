@@ -1,2 +1,9 @@
-# warehouse-environment-management
-Warehouse always contains some risks of fire, explosion, humidity and the effect of light on goods. This system alerts the warehouse manager with detailed information about the environment in the warehouse and is always updated in real time.
+# LSAPP - Laravel From Scratch App
+
+This is the source code for the "Laravel From Scratch" Youtube series by Traversy media. It is a website with a blog application. It also includes full authentication and file uploading.
+
+## Version
+1.0.0
+
+## Database
+The sql dump is in _SQL/lsapp.sql

@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +11,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+Route::get('/hello', function () {
+    //return view('welcome');
+    return '<h1>Hello World</h1>';
+});
 
-Route::get('/', 'pages_controller@index');
+Route::get('/users/{id}/{name}', function($id, $name){
+    return 'This is user '.$name.' with an id of '.$id;
+});
+*/
 
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/services', 'PagesController@services');
 
-Route::get('/about', 'pages_controller@about');
+Route::resource('posts', 'PostsController');
+Auth::routes();
 
-
-Route::get('/services', 'pages_controller@services');
+Route::get('/dashboard', 'DashboardController@index');
