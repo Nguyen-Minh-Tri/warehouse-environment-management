@@ -10,23 +10,24 @@ class PagesController extends Controller
         $host   = "io.adafruit.com";
         $port = 1883;                     // change if necessary
         $username = 'NMT99';                   // set your username
-        $password = 'aio_IYTF58H7XWbqGB3ZtFS0kXJHM9Am';                   // set your password
-        $client_id = 1626536; // make sure this is unique for connecting to sever - you could use uniqid()
-        
+        $password = 'aio_dmiu88VO4lbKuRxGjoivn7cMx87c';                   // set your password
+        $client_id = uniqid(); // make sure this is unique for connecting to sever - you could use uniqid()
+        echo("good here1");
         require('phpMQTT.php');
         $mqtt = new phpMQTT($host, $port, $client_id);
-        if(!$mqtt->connect(true, NULL, $username, $password)) {
-            exit(1);
-        }
+        echo("good here2");
+
+        $mqtt->connect(true, NULL, $username, $password);
         
-        $mqtt->debug = true;
-        
+        // $mqtt->debug = true;
+        echo("good here3");
         $topics['NMT99/feeds/bk-iot-temp-humid'] = array('qos' => 0, 'function' => 'procMsg');
 
         $mqtt->subscribe($topics, 0);
+        echo("good here4");
         
-        while($mqtt->proc()) {
-        
+        while ($mqtt->proc()) {
+            echo "Topic\n\n";
         }
         
         $mqtt->close();
@@ -47,13 +48,15 @@ class PagesController extends Controller
         $server   = "io.adafruit.com";
         $port = 1883;                     // change if necessary
         $username = 'NMT99';                   // set your username
-        $password = 'aio_IYTF58H7XWbqGB3ZtFS0kXJHM9Am';                   // set your password
+        $password = 'aio_dmiu88VO4lbKuRxGjoivn7cMx87c';                   // set your password
         $client_id = uniqid(); // make sure this is unique for connecting to sever - you could use uniqid()
         
         $mqtt = new phpMQTT($server, $port, $client_id);
         
         if ($mqtt->connect(true, NULL, $username, $password)) {
-            $message = '{ "id":"7", "name":"TEMP - HUMID", "data":"20-90", "unit":*C -%"}';
+            $humid = strval(rand(10,100));
+            $temp = strval(rand(10,100));
+            $message = '{ "id":"7", "name":"TEMP - HUMID", "data":'.$temp.'-'.$humid.', "unit":*C -%"}';
             $mqtt->publish('NMT99/feeds/bk-iot-temp-humid', $message, 0, false);
             echo "good connection";     
             $mqtt->close();
