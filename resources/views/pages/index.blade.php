@@ -10,6 +10,8 @@
         <p>Wellcome {{ Auth::user()->name }}</p>
     @endif
     </div>
-    <div id="fncbox"> hiii </div>
-    <div id="fncbox"> hiii </div>
+
+    
+
+    
 @endsection
