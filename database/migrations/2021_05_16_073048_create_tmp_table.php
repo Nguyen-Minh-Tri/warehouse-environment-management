@@ -11,9 +11,10 @@ class CreateTmpTable extends Migration
     public function up()
     {
         Schema::create('tmp', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('celsius');
-            $table->timestamps();
+            $table->string('id');
+            $table->string('name');
+            $table->string('data');
+            $table->string('unit');
         });
     }
 
