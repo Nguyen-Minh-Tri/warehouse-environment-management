@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\TempHumidSeeder;
+
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -20,8 +22,15 @@ class PagesController extends Controller
     public function services(){
         $data = array(
             'title' => 'Services',
-            'services' => ['Web Design', 'Programming', 'SEO']
+            'services' => ['7', 'TEMP-HUMID', '29-55', 'C-%']
         );
-        return view('pages.services')->with($data);
+        $value = explode ( '-' , $data['services'][2] , $limit = 2 ); //split
+        $unit = explode ( '-' , $data['services'][3] , $limit = 2 );
+        $data1 = array(
+            'title' => $data['title'],
+            'services' => [$data['services'][0], $data['services'][1], $value[0].$unit[0], $value[1].$unit[1]]
+        );
+
+        return view('pages.services')->with($data1);
     }
 }

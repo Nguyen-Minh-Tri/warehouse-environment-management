@@ -2,11 +2,10 @@
 
 @section('content')
     <h1>{{$title}}</h1>
-    @if(count($services) > 0)
         <ul class="list-group">
-            @foreach($services as $service)
-                <li class="list-group-item">{{$service}}</li>
-            @endforeach
+            <li class="list-group-item">ID: {{$services[0]}}</li>
+            <li class="list-group-item">Name: {{$services[1]}}</li>
+            <li class="list-group-item">Temperature: {{$services[2]}}</li>
+            <li class="list-group-item">Humidity: {{$services[3]}}</li>
         </ul>
-    @endif
 @endsection

@@ -26,7 +26,7 @@
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/services">Report</a></li>
-              <li><a href="/posts">Alnalysis</a></li>
+              <li><a href="/posts">Analysis</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
