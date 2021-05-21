@@ -1,0 +1,98 @@
+*, :before, :after { box-sizing: border-box; }
+
+body {
+  background-color: #1d1f20;
+  color: #e5e5e5;
+  font: 16px/1.25 'Raleway', sans-serif;
+  margin: 0;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80em;
+  padding: 1em;
+}
+
+section { text-align: center; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36em;
+  text-align: center;
+}
+
+.arrow {
+  border: 2em solid transparent;
+  height: 0;
+  margin: 50vh auto;
+  width: 0;
+}
+
+.arrow.down {
+  border-bottom: none;
+  border-top-color: #e5e5e5;
+}
+.arrow.up {
+    border-bottom-color: #e5e5e5;
+    border-top: none;
+}
+
+/*** RADIAL PROGRESS ***/
+/* Circumference = 2πr */
+/* π = 3.1415926535898 */
+/* r = 35 */
+
+svg.radial-progress {
+  height: auto;
+  max-width: 200px;
+  padding: 1em;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+svg.radial-progress circle {
+  fill: rgba(0,0,0,0);
+  stroke: #fff;
+  stroke-dashoffset: 219.91148575129; /* Circumference */
+  stroke-width: 10;
+}
+
+svg.radial-progress circle.incomplete { opacity: 0.25; }
+
+svg.radial-progress circle.complete { stroke-dasharray: 219.91148575129; /* Circumference */ }
+
+svg.radial-progress text {
+  fill: rgb(106, 101, 101);
+  stroke: rgb(91, 88, 88);
+  font: 400 1em/1 'Oswald', sans-serif;
+  text-anchor: middle;
+}
+
+/*** COLORS ***/
+/* Primary */
+
+svg.radial-progress:nth-of-type(6n+1) circle { stroke: #a2ed56; }
+
+/* Secondary */
+
+svg.radial-progress:nth-of-type(6n+2) circle { stroke: #83e4e2; }
+
+/* Tertiary */
+
+svg.radial-progress:nth-of-type(6n+3) circle { stroke: #fd6470; }
+
+/* Quaternary */
+
+svg.radial-progress:nth-of-type(6n+4) circle { stroke: #fca858; }
+
+/* Quinary */
+
+svg.radial-progress:nth-of-type(6n+5) circle { stroke: #fddc32; }
