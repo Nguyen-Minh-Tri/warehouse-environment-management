@@ -28,7 +28,7 @@ class PagesController extends Controller
         $unit = explode ( '-' , $data['services'][3] , $limit = 2 );
         $data1 = array(
             'title' => $data['title'],
-            'services' => [$data['services'][0], $data['services'][1], $value[0].$unit[0], $value[1].$unit[1]]
+            'services' => [$data['services'][0], $data['services'][1], [$value[0],$unit[0] ], [$value[1],$unit[1]] ]
         );
 
         return view('pages.services')->with($data1);
