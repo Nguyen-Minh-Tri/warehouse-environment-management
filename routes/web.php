@@ -24,9 +24,13 @@ Route::get('/users/{id}/{name}', function($id, $name){
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
+Route::get('/services', 'PagesController@report');
 
 Route::resource('posts', 'PostsController');
-Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('/building', 'DashboardController@building');
+Route::get('/room', 'BuildingController@room');
+
+Auth::routes();

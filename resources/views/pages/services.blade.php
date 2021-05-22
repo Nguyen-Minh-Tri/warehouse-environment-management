@@ -17,4 +17,9 @@
                 </svg> 
             </section>
         </main>
+        <form action="PagesControllers@send_to_ada">
+            <input type="number" required id = "temp" placeholder="Temperature">
+            <input type="number" required id = "humid" placeholder="Humidity">
+            <button>Publish to device</button>
+        </form>
 @endsection

@@ -19,9 +19,9 @@ class PagesController extends Controller
         return view('pages.about')->with('title', $title);
     }
 
-    public function services(){
+    public function report(){
         $data = array(
-            'title' => 'Services',
+            'title' => 'All devices',
             'services' => ['7', 'TEMP-HUMID', '29-55', 'C-%']
         );
         $value = explode ( '-' , $data['services'][2] , $limit = 2 ); //split
@@ -32,5 +32,11 @@ class PagesController extends Controller
         );
 
         return view('pages.services')->with($data1);
+    }
+
+
+    public function send_to_ada(){
+        $title = 'About Us';
+        return view('pages.about')->with('title', $title);
     }
 }
