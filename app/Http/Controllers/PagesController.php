@@ -24,7 +24,8 @@ class PagesController extends Controller
             'title' => 'Services',
             'services' => ['7', 'TEMP-HUMID', '29-55', 'C-%']
         );
-        $value = explode ( '-' , $data['services'][2] , $limit = 2 ); //split
+
+        $value = explode ( '-' , $data['services'][2] , $limit = 2 ); 
         $unit = explode ( '-' , $data['services'][3] , $limit = 2 );
         $data1 = array(
             'title' => $data['title'],
