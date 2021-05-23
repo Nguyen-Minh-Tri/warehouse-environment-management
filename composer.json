@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "bluerhinos/phpmqtt": "@dev",
         "consoletvs/charts": "^6.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "predis/predis": "^1.1",
         "unisharp/laravel-ckeditor": "^4.6"
     },
     "require-dev": {
