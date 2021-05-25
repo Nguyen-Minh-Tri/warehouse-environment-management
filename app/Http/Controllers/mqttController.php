@@ -1,12 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 use Bluerhinos\phpMQTT;
 use Illuminate\Http\Request;
 
-
-class Subcriber extends Controller
+class mqttController extends Controller
 {
-    public function sub()
+    public function sub(Request $request)
     {
         $host   = "io.adafruit.com";
         $port = 1883;                     // change if necessary
@@ -32,7 +32,7 @@ class Subcriber extends Controller
         $mqtt->close();
 
 
-        function procMsg(Request $request,$topic, $msg)
+        function procMsg($request, $msg)
         {
             // global $request;
             // echo 'Msg Recieved: ' . date('r') . "\n";
@@ -40,14 +40,9 @@ class Subcriber extends Controller
             echo "\t$msg\n\n";
             $data = json_decode($msg);
             echo $data->{'data'};
-            $_SESSION['th'] = $data->{'data'};
-            if (isset($_SESSION['th'])) {
-                print_r($_SESSION['th']);
-                echo '----------------------------------------';
-            }
+            $request-session()->put('th', $data->{'data'});
         // echo $request->session()->get('th');
         }
     }
 
-    
 }
