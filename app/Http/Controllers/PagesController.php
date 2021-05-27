@@ -38,7 +38,8 @@ class PagesController extends Controller
             // 'services' => ['7' , 'TEMP-HUMID', '29-55', 'C-%']
             'services' => $_SESSION['service']
         );
-        $value = explode ( '-' , $data['services'][2] , $limit = 2 ); //split
+
+        $value = explode ( '-' , $data['services'][2] , $limit = 2 ); 
         $unit = explode ( '-' , $data['services'][3] , $limit = 2 );
         $data1 = array(
             'title' => $data['title'],
