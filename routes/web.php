@@ -23,8 +23,8 @@ Route::get('/users/{id}/{name}', function($id, $name){
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@report');
+Route::get('/publishing', 'PagesController@publishing');
+Route::get('/devices', 'PagesController@report');
 
 Route::resource('posts', 'PostsController');
 
@@ -32,5 +32,7 @@ Route::get('/dashboard', 'DashboardController@index');
 
 Route::get('/building', 'DashboardController@building');
 Route::get('/room', 'BuildingController@room');
+Route::get('/load_device', 'PagesController@load_device');
+Route::get('/about', 'PagesController@about');
 
 Auth::routes();
