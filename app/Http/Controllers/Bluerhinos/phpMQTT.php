@@ -126,7 +126,6 @@ class phpMQTT
      */
     public function connect($clean = true, $will = null, $username = null, $password = null): bool
     {
-        echo("good here");
         if ($will) {
             $this->will = $will;
         }
@@ -136,6 +135,7 @@ class phpMQTT
         if ($password) {
             $this->password = $password;
         }
+
         if ($this->cafile) {
             $socketContext = stream_context_create(
                 [
@@ -517,7 +517,7 @@ class phpMQTT
 
         if ((string)$byte === '') {
             if ($loop === true) {
-                usleep(1);
+                usleep(100000);
             }
         } else {
             $cmd = (int)(ord($byte) / 16);
