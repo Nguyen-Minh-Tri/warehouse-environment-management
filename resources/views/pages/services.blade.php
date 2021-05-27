@@ -22,4 +22,5 @@
             <input type="number" required id = "humid" placeholder="Humidity">
             <button>Publish to device</button>
         </form>
+
 @endsection

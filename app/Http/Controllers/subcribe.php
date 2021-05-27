@@ -34,7 +34,4 @@ function procMsg($topic, $msg){
     echo "\t$msg\n\n";
     $data = json_decode($msg);
     file_put_contents('1.php', '<?php'."\n".'$a=[\''.$data->{'id'}.'\',\''.$data->{'name'}.'\',\''.$data->{'data'}.'\',\''.$data->{'unit'}.'\']'."\n".'?>');
-    // print_r($msg);
-    // $v = $request->session()->put('th', $data->{'data'});
-    // echo $request->session()->get('th'); 
 }

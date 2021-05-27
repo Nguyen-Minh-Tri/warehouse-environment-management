@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\TempHumidSeeder;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SubscribeController;
 session_start();
 require('1.php');
 $_SESSION["service"] = $a;
@@ -23,6 +24,8 @@ class PagesController extends Controller
     }
 
     public function report(){
+        $instance = new SubscribeController;
+        // $instance->subscribe();
         $data = array(
             'title' => 'All devices',
             // 'services' => ['7' , 'TEMP-HUMID', '29-55', 'C-%']
