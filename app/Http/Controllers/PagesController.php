@@ -3,8 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\TempHumidSeeder;
 use Illuminate\Http\Request;
-session_start();
-require('1.php');
+// session_start();
+require_once('1.php');
 $_SESSION["service"] = $a;
 
 class PagesController extends Controller
@@ -22,14 +22,33 @@ class PagesController extends Controller
     }
 
     public function publishing(){
+        // take data from view of wareHouse
+        $name = $_GET['name'];
+        $mess = $_GET['mess'];
+
+        // establish the publisher
         require('subcribe.php');
         $publisher = new Publisher;
-        $publisher->pub();
 
-    }
-    public function load_device(){
-        $views = file_get_contents('2.php');
-        return $views;
+        if(strtoupper($name) == "SPEAKER" && $mess == "1000"){
+            echo "The speaker is now turned on!";
+        }
+        if(strtoupper($name) == "SPEAKER" && $mess == "0"){
+            echo "The speaker is now turned off";
+        }
+        if(strtoupper($name) == "RELAY" && $mess == "1"){
+            echo "The relay is now turned on!";
+        }
+        if(strtoupper($name) == "RELAY" && $mess == "0"){
+            echo "The relay is now turned off";
+        }
+        if(strtoupper($name) == "LCD"){
+            echo "Sent to LCD content: ".$_GET['mess'];
+        }
+
+        // $data = "Fire";
+        // $name = "lcd";
+        $publisher->pub($name, $mess);
     }
 
     public function report(Request $request){

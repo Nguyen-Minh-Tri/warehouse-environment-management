@@ -8,8 +8,8 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <a href="/posts/create" class="btn btn-primary">Create Post</a>
-                    <h3>Your Blog Posts</h3>
+                    <a href="/posts/create" class="btn btn-primary">Add warehouse</a>
+                    <h3>Your warehouses</h3>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
                             <tr>
