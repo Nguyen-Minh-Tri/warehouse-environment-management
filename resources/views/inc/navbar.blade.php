@@ -14,6 +14,12 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
+            {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('mail.username', 'Laravel') }}
+            </a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('mail.password', 'Laravel') }}
+            </a> --}}
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -25,8 +31,8 @@
             <ul class="nav navbar-nav">
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
-              <li><a href="/devices">Devices</a></li>
-              <li><a href="/posts">Analysis</a></li>
+              <li><a href="/alldevices">Devices</a></li>
+              <li><a href="/posts">Warehouse</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

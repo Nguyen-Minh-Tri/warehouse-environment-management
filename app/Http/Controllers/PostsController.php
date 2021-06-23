@@ -2,29 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Device;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManagerStatic as Image;
+
 use App\Post;
-use DB;
+use DB, Session;
+
+require_once('1.php');
+$_SESSION["service"] = $a;
 
 class PostsController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    // /**
+    //  * Create a new controller instance.
+    //  *
+    //  * @return void
+    //  */
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function index()
     {
         //$posts = Post::all();
@@ -78,6 +84,10 @@ class PostsController extends Controller
 	    $thumbStore = 'thumb.'.$filename.'_'.time().'.'.$extension;
             $thumb = Image::make($request->file('cover_image')->getRealPath());
             $thumb->resize(80, 80);
+            $save_path = 'storage/cover_images/';
+            if (!file_exists($save_path)) {
+                mkdir($save_path, 666, true);
+            }
             $thumb->save('storage/cover_images/'.$thumbStore);
 		
         } else {
@@ -103,8 +113,30 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+        // take current ID
+        Session::put('curID',$id);
         $post = Post::find($id);
-        return view('posts.show')->with('post', $post);
+        // take all devices of current warehouse
+        $sql = 'SELECT * FROM devices WHERE warehouseID ='."$id";
+        // query data
+        $idDevices = DB::select($sql);
+
+        // load data from listener
+        $data = array(
+            'title' => 'All devices',
+            // 'services' => ['7' , 'TEMP-HUMID', '29-55', 'C-%']
+            'services' => $_SESSION['service']
+        );
+        $value = explode ( '-' , $data['services'][2] , $limit = 2 ); //split
+        $unit = explode ( '-' , $data['services'][3] , $limit = 2 );
+        $services1 = array(
+            'title' => $data['title'],
+            'services' => [$data['services'][0], $data['services'][1], [$value[0],$unit[0] ], [$value[1],$unit[1]] ]
+        );
+        // put three points of data included: warehouse information, device information and listener information
+        return view('posts.show')->with(compact('post', 'idDevices', 'services1'));  
+        // return view('posts.show')->with('post', $post);
+    
     }
 
     /**
@@ -204,6 +236,6 @@ class PostsController extends Controller
         }
         
         $post->delete();
-        return redirect('/posts')->with('success', 'Post Removed');
+        return redirect('/posts')->with('success', 'Warehouse Removed');
     }
 }

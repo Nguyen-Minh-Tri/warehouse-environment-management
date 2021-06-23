@@ -5,7 +5,7 @@
     <h1>{{$title}}</h1>
         <form method="POST" action="PagesControllers@send_to_ada">
             <input type="text" id = "search" placeholder="Device name or ID" style="border: 2px solid rgb(122, 122, 122);border-radius: 10px; padding:5px">
-            <button style="border: 2px solid rgb(122, 122, 122);border-radius: 10px;padding:5px">Search</button>
+            <button style="border: 2px solid rgb(122, 122, 122); background-color: rgba(26, 226, 42, 0.555);border-radius: 10px;padding:5px">Search</button>
         </form>
         <br>
         <br>
@@ -28,8 +28,6 @@
                     </svg>
                 </section>
             </div>
-        {{-- </div> --}}
-
         
     <script type="text/javascript">
     init_reload();
@@ -37,7 +35,7 @@
         setInterval( function() {
                    window.location.reload();
  
-          },1000);
+          },10000);
     }
     </script>
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EditTmpTable extends Migration
+class Devices extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class EditTmpTable extends Migration
      */
     public function up()
     {
-        Schema::table('tmp', function (Blueprint $table) {
-            // $table->dropColumn('celsius');
-            // $table->dropColumn('created_at');
-            // $table->dropColumn('updated_at');
+        Schema::create('devices', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('DeviceName');
+            $table->integer('warehouseID');
+            $table->mediumText('body');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class EditTmpTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posts');
     }
 }
