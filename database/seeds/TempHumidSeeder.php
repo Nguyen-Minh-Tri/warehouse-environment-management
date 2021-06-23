@@ -20,5 +20,5 @@ class TempHumidSeeder extends Seeder
             'unit' => "C-%"
             // 'description' => $fake->sentence(15)
         ]);
-
+    }
 }

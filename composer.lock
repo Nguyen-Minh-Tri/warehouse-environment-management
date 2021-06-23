@@ -4,7 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "6117462d9a14db490fbabc809a0316d9",
+
     "packages": [
         {
             "name": "balping/json-raw-encoder",
@@ -51,6 +53,47 @@
                 "issues": "https://gitlab.com/api/v4/projects/6731265/issues"
             },
             "time": "2020-06-06T16:24:31+00:00"
+        },
+        {
+            "name": "bluerhinos/phpmqtt",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bluerhinos/phpMQTT.git",
+                "reference": "7a9d6b26f19e0298e0bef8f873038ab823fb79af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bluerhinos/phpMQTT/zipball/7a9d6b26f19e0298e0bef8f873038ab823fb79af",
+                "reference": "7a9d6b26f19e0298e0bef8f873038ab823fb79af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bluerhinos\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Milsted",
+                    "email": "andrew@bluerhinos.co.uk"
+                }
+            ],
+            "description": "Simple MQTT Class",
+            "support": {
+                "issues": "https://github.com/bluerhinos/phpMQTT/issues",
+                "source": "https://github.com/bluerhinos/phpMQTT/tree/1.0.0"
+            },
+            "time": "2020-04-19T17:42:58+00:00"
         },
         {
             "name": "consoletvs/charts",
@@ -1336,6 +1379,7 @@
             "time": "2021-04-17T09:33:01+00:00"
         },
         {
+
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -1361,6 +1405,7 @@
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Message\\": "src/"
+
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4833,6 +4878,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "intervention/image": 20
+
     },
     "prefer-stable": false,
     "prefer-lowest": false,
