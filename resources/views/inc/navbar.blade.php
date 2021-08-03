@@ -33,6 +33,7 @@
               <li><a href="/about">About</a></li>
               <li><a href="/alldevices">Devices</a></li>
               <li><a href="/posts">Warehouse</a></li>
+              <li><a href="/analysis">Analysis</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

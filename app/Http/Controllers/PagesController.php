@@ -5,7 +5,26 @@ use Illuminate\Database\TempHumidSeeder;
 use Illuminate\Http\Request;
 // session_start();
 require_once('1.php');
+require_once('last20.php');
+require_once('pre.php');
 $_SESSION["service"] = $a;
+$value = explode ( '-' , $a[2] , $limit = 2 );
+if(count($arr)>20){
+    array_splice($arr, 0, count($arr)>20);
+}
+$b="";
+array_push($arr,intval($value[0]));
+$_SESSION["last20"] = $arr;
+foreach($arr as $i){
+    $b = $b.$i.',';
+}
+$b = $b.' ';
+$b = rtrim($b, ", ");
+
+file_put_contents('last20.php', '<?php'."\n". '$arr=array('.   $b  . ')' ."\n".'?>');
+
+$_SESSION["predict"] = $p;
+
 
 class PagesController extends Controller
 {
@@ -65,6 +84,16 @@ class PagesController extends Controller
         );
 
         return view('pages.services')->with($data1);
+    }
+
+    public function analysis(Request $request){
+        $data = $_SESSION['last20'];
+        $predict = $_SESSION['predict'];
+        $data1 = array(
+            'data' => $data,
+            'predict' => $predict,
+        );
+        return view('pages.analysis')->with($data1);
     }
 
 

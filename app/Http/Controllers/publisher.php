@@ -15,14 +15,14 @@ class Publisher extends Controller
         $server   = "io.adafruit.com";
         $port = 1883;                     // change if necessary
         if (strtoupper($name) != "RELAY") {
-            $username = 'NMT99';                   // set your username
+            $username = 'quangmanh1998';                   // set your username
             // $username = 'CSE_BBC';                   // set your username
-            $password = 'aio_jhHM91927yaLdzIZk1HVa0OMS3pZ';                   // set your password
+            $password = 'aio_tLUh48BBEOvzaqD8Po884YfylO3K';                   // set your password
         }
         else{
-            $username = 'NMT99';                   // set your username
+            $username = 'quangmanh1998';                   // set your username
             // $username = 'CSE_BBC1';                   // set your username
-            $password = 'aio_jhHM91927yaLdzIZk1HVa0OMS3pZ';                   // set your password
+            $password = 'aio_tLUh48BBEOvzaqD8Po884YfylO3K';                   // set your password
         }
         
         $client_id = uniqid(); // make sure this is unique for connecting to sever - you could use uniqid()
@@ -32,18 +32,18 @@ class Publisher extends Controller
             // LCD
             if (strtoupper($name) == "LCD") {
                 $message = '{ "id":"3", "name":"LCD", "data":'.'"'.strval($data).'"'.', "unit":"" }'; // LDC ok
-                $mqtt->publish('NMT99/feeds/bk-iot-lcd', $message, 0, false); // LDC ok
+                $mqtt->publish('quangmanh1998/feeds/bk-iot-lcd', $message, 0, false); // LDC ok
             }
             // SPEAKER
             if (strtoupper($name) == "SPEAKER") {
                 $message = '{ "id":"2", "name":"SPEAKER", "data":'.'"'.strval($data).'"'.', "unit":"" }'; // X trong khoảng từ 0 tới 1023
-                $mqtt->publish('NMT99/feeds/bk-iot-speaker', $message, 0, false); // speaker ok
+                $mqtt->publish('quangmanh1998/feeds/bk-iot-speaker', $message, 0, false); // speaker ok
             }
 
             // Mạch Relay
             if (strtoupper($name) == "RELAY") {
                 $message = '{ "id":"11", "name":"RELAY", "data":'.'"'.strval($data).'"'.', "unit":”” }'; // X la 0 hoac 1
-                $mqtt->publish('NMT99/feeds/bk-iot-relay', $message, 0, false); // relay ok parrrk parrkk
+                $mqtt->publish('quangmanh1998/feeds/bk-iot-relay', $message, 0, false); // relay ok parrrk parrkk
                 // $mqtt->publish('CSE_BBC1/feeds/bk-iot-relay', $message, 0, false); // relay ok parrrk parrkk
             }
             // Dừng chạy MQTT

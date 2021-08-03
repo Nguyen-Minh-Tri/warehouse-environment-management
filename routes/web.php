@@ -25,6 +25,7 @@ Route::get('/users/{id}/{name}', function($id, $name){
 Route::get('/', 'PagesController@index');
 Route::get('/publishing', 'PagesController@publishing');
 Route::get('/alldevices', 'PagesController@report');
+Route::get('/analysis', 'PagesController@analysis');
 
 Route::resource('posts', 'PostsController');
 Route::resource('devices', 'DevicesController');

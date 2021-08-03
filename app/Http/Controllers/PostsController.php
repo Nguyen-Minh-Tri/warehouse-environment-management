@@ -124,7 +124,6 @@ class PostsController extends Controller
         // load data from listener
         $data = array(
             'title' => 'All devices',
-            // 'services' => ['7' , 'TEMP-HUMID', '29-55', 'C-%']
             'services' => $_SESSION['service']
         );
         $value = explode ( '-' , $data['services'][2] , $limit = 2 ); //split
@@ -133,6 +132,7 @@ class PostsController extends Controller
             'title' => $data['title'],
             'services' => [$data['services'][0], $data['services'][1], [$value[0],$unit[0] ], [$value[1],$unit[1]] ]
         );
+        
         // put three points of data included: warehouse information, device information and listener information
         return view('posts.show')->with(compact('post', 'idDevices', 'services1'));  
         // return view('posts.show')->with('post', $post);

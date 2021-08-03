@@ -76,7 +76,7 @@ class DevicesController extends Controller
         $device->save();
         echo $request['devcieID'];
 
-        return redirect('/posts/'.$curID)->with('success', 'device Created');
+        return redirect('/posts'.$curID)->with('success', 'device Created');
     }
 
     /**

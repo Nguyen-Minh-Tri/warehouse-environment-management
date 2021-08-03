@@ -2,7 +2,6 @@
 
 @section('content')
 {{-- start section --}}
-
 <a href="/posts" class="btn btn-default">Go Back</a>
 <h1>{{$post->title}}</h1>
 {{-- created time and user --}}
@@ -14,12 +13,10 @@
 <div>
     @php
         $request = $post->id;
-        echo($request['devcieID']);
     @endphp
 </div>
 {{-- add device button --}}
 <a href="/devices/create" class="btn btn-primary">Add device</a> <br>
-
 {{-- load all devices --}}
 <hr>
 @if (isset($allDevices)) {
@@ -27,7 +24,7 @@
 }
 @elseif (isset($idDevices))
 @foreach ($idDevices as $device)
-    @if (($device->DeviceName) == "TEMP-HUMID")
+    @if (is_string($device->DeviceName) && ($device->DeviceName) == "TEMP-HUMID")
         {{-- @php
         print_r($device)
         @endphp --}}
@@ -54,7 +51,7 @@
     @endif
 
     {{-- LCD display screen --}}
-    @if (($device->DeviceName) == "LCD")
+    @if (is_string($device->DeviceName) &&($device->DeviceName) == "LCD")
     <div style=" float: left; height: 20em; width: 47%;margin-top: 2.5%; margin-left: 2.5%;background-color: rgba(148, 148, 148, 0.116); padding:30px; border: 3px solid; border-radius: 15px;">
 
         <h3 > LCD display No.{{$device->id}} -- Warehouse {{$services1['services'][0]}} </h3>
@@ -71,7 +68,7 @@
     @endif
 
     {{-- Sound display arlert --}}
-    @if (($device->DeviceName) == "SPEAKER")
+    @if (is_string($device->DeviceName) && ($device->DeviceName) == "SPEAKER")
     <div style="float: left; height: 20em; width: 47%;margin-top: 2.5%; margin-left: 2.5%;background-color: rgba(148, 148, 148, 0.116); padding:30px; border: 3px solid; border-radius: 15px;">
 
         <h3 > Speaker No.{{$device->id}} -- Warehouse {{$services1['services'][0]}} </h3>
@@ -85,7 +82,7 @@
 
 
     {{-- Pump controller --}}
-    @if (($device->DeviceName) == "RELAY")
+    @if (is_string($device->DeviceName) &&($device->DeviceName) == "RELAY")
     <div style="float: left; height: 20em; width: 47%;margin-top: 2.5%; margin-left: 2.5%;background-color: rgba(148, 148, 148, 0.116); padding:30px; border: 3px solid; border-radius: 15px;">
 
         <h3 > Water Pump Controller (Relay) No.{{$device->id}} -- Warehouse {{$services1['services'][0]}} </h3>
